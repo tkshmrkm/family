@@ -4,16 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌸 東京日帰り家族旅行 2026.3.28</title>
+    <title>東京家族旅行 2026.3.28</title>
     <style>
-        :root {
-            --sakura-pink: #FFB7C5;
-            --sakura-dark: #E91E63;
-            --sakura-light: #FFF0F5;
-            --text-dark: #333;
-            --text-light: #666;
-            --gold: #FFD700;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap');
 
         * {
             margin: 0;
@@ -21,1322 +14,1265 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg: #fff5f8;
+            --surface: #ffffff;
+            --surface2: #fff0f4;
+            --accent: #e0527a;
+            --accent2: #f472a0;
+            --gold: #d97706;
+            --green: #059669;
+            --blue: #2563eb;
+            --text: #3d1a24;
+            --muted: #9e6878;
+            --border: rgba(224, 82, 122, 0.15);
+        }
+
         body {
-            font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
-            background: linear-gradient(135deg, #FFF0F5 0%, #FFE4E9 100%);
+            font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+            background: linear-gradient(135deg, #fff5f8 0%, #fce4ec 100%);
+            color: var(--text);
             min-height: 100vh;
-            padding: 15px;
-            line-height: 1.6;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .header {
+        /* ─── HERO ─── */
+        .hero {
+            background: linear-gradient(135deg, #f9a8c4 0%, #fbcfe8 40%, #fda4b8 100%);
+            padding: 50px 20px 40px;
             text-align: center;
-            padding: 25px 20px;
-            background: linear-gradient(135deg, var(--sakura-pink) 0%, #FF9CAA 100%);
-            border-radius: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 30px rgba(233, 30, 99, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+        }
+
+        .hero-date {
+            font-size: .85em;
+            color: #9d2a4a;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-size: clamp(1.8em, 5vw, 3em);
+            font-weight: 900;
+            color: #7c1535;
+            text-shadow: 0 2px 8px rgba(255, 255, 255, 0.6);
+            margin-bottom: 8px;
             position: relative;
         }
 
-        .header::before,
-        .header::after {
-            content: "🌸";
-            position: absolute;
-            font-size: 35px;
-            opacity: 0.5;
+        .hero .sub {
+            color: #9d2a4a;
+            font-size: .9em;
+            margin-bottom: 24px;
         }
 
-        .header::before {
-            top: 8px;
-            left: 15px;
-        }
-
-        .header::after {
-            bottom: 8px;
-            right: 15px;
-        }
-
-        .header h1 {
-            color: white;
-            font-size: 1.8em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            margin-bottom: 8px;
-        }
-
-        .header .date {
-            color: white;
-            font-size: 1.3em;
-            font-weight: bold;
-        }
-
-        .header .subtitle {
-            color: white;
-            font-size: 1em;
-            margin-top: 12px;
-            opacity: 0.95;
-        }
-
-        .member-badges {
+        .hero-pills {
             display: flex;
+            gap: 10px;
             justify-content: center;
-            gap: 12px;
-            margin-top: 15px;
             flex-wrap: wrap;
         }
 
-        .badge {
-            background: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            color: var(--sakura-dark);
-            font-weight: bold;
+        .pill {
+            background: rgba(255, 255, 255, 0.55);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            color: #9d2a4a;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: .82em;
+            font-weight: 700;
         }
 
-        .quick-summary {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin-bottom: 20px;
+        /* ─── LAYOUT ─── */
+        .main {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 30px 16px;
         }
 
-        .summary-card {
-            background: white;
-            padding: 15px 10px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
-        }
-
-        .summary-card .emoji {
-            font-size: 2em;
-        }
-
-        .summary-card .label {
-            font-size: 0.75em;
-            color: var(--text-light);
-            margin-top: 5px;
-        }
-
-        .summary-card .value {
-            font-size: 0.95em;
-            color: var(--sakura-dark);
-            font-weight: bold;
-        }
-
-        .tabs {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 0;
-            flex-wrap: wrap;
-        }
-
-        .tab-btn {
-            flex: 1;
-            min-width: 120px;
-            padding: 16px 12px;
-            border: none;
-            background: white;
-            border-radius: 16px 16px 0 0;
-            font-size: 1em;
-            font-weight: bold;
-            color: var(--text-light);
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .tab-btn .icon {
-            font-size: 1.6em;
-        }
-
-        .tab-btn:hover {
-            background: var(--sakura-light);
-        }
-
-        .tab-btn.active {
-            background: white;
-            color: var(--sakura-dark);
-            box-shadow: 0 -4px 15px rgba(233, 30, 99, 0.15);
-        }
-
-        .tab-content {
-            display: none;
-            background: white;
-            border-radius: 0 0 16px 16px;
-            padding: 25px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            animation: fadeIn 0.3s;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 7px;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(180deg, var(--sakura-pink), var(--sakura-dark));
-            border-radius: 2px;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 18px;
-            padding: 14px 18px;
-            background: var(--sakura-light);
-            border-radius: 12px;
-            border-left: 4px solid var(--sakura-pink);
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -28px;
-            top: 18px;
-            width: 12px;
-            height: 12px;
-            background: var(--sakura-dark);
-            border-radius: 50%;
-            border: 3px solid white;
-        }
-
-        .timeline-item.highlight {
-            background: linear-gradient(135deg, #FFF5F7 0%, #FFE8ED 100%);
-            border-left-color: var(--sakura-dark);
-        }
-
-        .time-badge {
-            display: inline-block;
-            background: var(--sakura-dark);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.85em;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        .timeline-item h4 {
-            color: var(--text-dark);
-            font-size: 1.05em;
-            margin-bottom: 5px;
-        }
-
-        .timeline-item .detail {
-            color: var(--text-light);
-            font-size: 0.9em;
-        }
-
-        .timeline-item .duration {
-            display: inline-block;
-            background: #FFF;
-            padding: 3px 10px;
-            border-radius: 8px;
-            font-size: 0.8em;
-            color: var(--sakura-dark);
-            margin-top: 8px;
-            font-weight: bold;
-        }
-
-        .transport {
+        /* ─── SECTION TITLE ─── */
+        .sec-title {
+            font-size: .75em;
+            font-weight: 700;
+            letter-spacing: .18em;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 10px 14px;
-            margin: 10px 0;
-            background: #f8f8f8;
-            border-radius: 8px;
-            font-size: 0.9em;
-            color: var(--text-light);
         }
 
-        .transport .emoji {
-            font-size: 1.3em;
-        }
-
-        /* チケットカード風 交通手段 */
-        .ticket-card {
-            margin: 12px 0;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
-            position: relative;
-        }
-
-        .ticket-card.shinkansen {
-            background: linear-gradient(135deg, #1565C0 0%, #0D47A1 100%);
-        }
-
-        .ticket-card.airplane {
-            background: linear-gradient(135deg, #00897B 0%, #004D40 100%);
-        }
-
-        .ticket-inner {
-            display: flex;
-            align-items: center;
-            padding: 14px 18px;
-            gap: 14px;
-            color: white;
-        }
-
-        .ticket-icon {
-            font-size: 2.2em;
-            flex-shrink: 0;
-        }
-
-        .ticket-detail {
+        .sec-title::after {
+            content: '';
             flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* ─── TICKET CARDS ─── */
+        .ticket-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 36px;
+        }
+
+        .ticket {
+            border-radius: 18px;
+            padding: 22px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(224, 82, 122, 0.25);
+            color: #3d1a24;
+        }
+
+        .ticket.flight {
+            background: linear-gradient(135deg, #fff0f6, #fce4ec);
+            box-shadow: 0 4px 20px rgba(224, 82, 122, .12);
+        }
+
+        .ticket.shinkansen {
+            background: linear-gradient(135deg, #fff8f0, #fce8dc);
+            box-shadow: 0 4px 20px rgba(234, 120, 60, .12);
+            border-color: rgba(234, 120, 60, 0.25);
+        }
+
+        .ticket::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 130px;
+            height: 130px;
+            background: rgba(255, 255, 255, .5);
+            border-radius: 50%;
+        }
+
+        .ticket-kind {
+            font-size: .7em;
+            font-weight: 700;
+            letter-spacing: .12em;
+            opacity: .7;
+            margin-bottom: 6px;
         }
 
         .ticket-route {
+            font-size: 1.3em;
+            font-weight: 900;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .ticket-row2 {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .ticket-line {
+            font-size: .78em;
+            opacity: .85;
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 1em;
-            font-weight: bold;
+            gap: 6px;
+        }
+
+        .ticket-seats {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .seat {
+            background: rgba(224, 82, 122, .12);
+            border: 1px solid rgba(224, 82, 122, .3);
+            color: #9d2a4a;
+            padding: 3px 9px;
+            border-radius: 8px;
+            font-size: .74em;
+            font-weight: 700;
+        }
+
+        .confirmed-tag {
+            display: inline-block;
+            background: rgba(16, 185, 129, .15);
+            border: 1px solid rgba(16, 185, 129, .4);
+            color: #065f46;
+            padding: 2px 9px;
+            border-radius: 6px;
+            font-size: .68em;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        /* ─── TIMELINE (リニューアル) ─── */
+        .schedule {
+            margin-bottom: 36px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(224, 82, 122, 0.18);
+            box-shadow: 0 2px 12px rgba(224, 82, 122, 0.07);
+        }
+
+        .sch-row {
+            display: grid;
+            grid-template-columns: 68px 1fr;
+            align-items: stretch;
+            background: #fff;
+            border-bottom: 1px solid rgba(224, 82, 122, 0.1);
+        }
+
+        .sch-row:last-child {
+            border-bottom: none;
+        }
+
+        /* 移動行 */
+        .sch-row.transit {
+            background: #fdf2f5;
+            grid-template-columns: 68px 1fr;
+        }
+
+        /* 時刻セル */
+        .sch-time {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .8em;
+            font-weight: 700;
+            color: var(--accent);
+            padding: 14px 8px;
+            border-right: 1px solid rgba(224, 82, 122, 0.12);
+            background: #fff9fb;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        .sch-row.transit .sch-time {
+            background: #fdf2f5;
+            color: #c9849a;
+            font-size: .72em;
+            font-weight: 400;
+        }
+
+        /* 内容セル */
+        .sch-body {
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .sch-row.transit .sch-body {
+            padding: 9px 18px;
+            color: #b07088;
+            font-size: .83em;
+        }
+
+        /* 左アクセントバー（イベント種別） */
+        .sch-bar {
+            width: 4px;
+            border-radius: 2px;
+            flex-shrink: 0;
+            align-self: stretch;
+            min-height: 100%;
+        }
+
+        .bar-home {
+            background: #f9a8c4;
+        }
+
+        .bar-move {
+            background: #ddd;
+        }
+
+        .bar-flight {
+            background: #93c5fd;
+        }
+
+        .bar-main {
+            background: var(--accent);
+        }
+
+        .bar-train {
+            background: #6ee7b7;
+        }
+
+        .bar-dinner {
+            background: #fca5a5;
+        }
+
+        /* テキスト */
+        .sch-label {
+            flex: 1;
+        }
+
+        .sch-label .sl-title {
+            font-size: .95em;
+            font-weight: 700;
+            color: #3d1a24;
+            margin-bottom: 2px;
+        }
+
+        .sch-row.transit .sl-title {
+            font-weight: 400;
+            color: #b07088;
+        }
+
+        .sch-label .sl-sub {
+            font-size: .8em;
+            color: var(--muted);
+        }
+
+        .sch-label .sl-dur {
+            display: inline-block;
+            margin-top: 4px;
+            background: rgba(224, 82, 122, .1);
+            color: var(--accent);
+            font-size: .74em;
+            font-weight: 700;
+            padding: 2px 9px;
+            border-radius: 6px;
+        }
+
+        .dur-tag {
+            display: inline-block;
+            background: rgba(224, 82, 122, .1);
+            border-radius: 6px;
+            padding: 2px 9px;
+            font-size: .73em;
+            color: var(--accent);
+            margin-top: 6px;
+        }
+
+        /* ─── HIGHLIGHT BLOCKS ─── */
+        .block-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 36px;
+        }
+
+        .block {
+            background: #ffffff;
+            border: 1px solid rgba(224, 82, 122, 0.2);
+            border-radius: 16px;
+            padding: 20px 16px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(224, 82, 122, 0.07);
+            transition: transform .2s, border-color .2s, box-shadow .2s;
+        }
+
+        .block:hover {
+            transform: translateY(-3px);
+            border-color: rgba(224, 82, 122, .4);
+            box-shadow: 0 6px 18px rgba(224, 82, 122, 0.14);
+        }
+
+        .block .emo {
+            font-size: 2em;
+            margin-bottom: 8px;
+        }
+
+        .block .b-time {
+            font-size: .7em;
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: .05em;
             margin-bottom: 4px;
         }
 
-        .ticket-route .arrow {
-            opacity: 0.7;
+        .block .b-name {
+            font-size: .95em;
+            font-weight: 700;
+            margin-bottom: 4px;
         }
 
-        .ticket-times {
-            display: flex;
-            align-items: baseline;
-            gap: 6px;
-            font-size: 0.85em;
-            opacity: 0.9;
+        .block .b-sub {
+            font-size: .75em;
+            color: var(--muted);
         }
 
-        .ticket-times .dep,
-        .ticket-times .arr {
-            font-size: 1.1em;
-            font-weight: bold;
-        }
-
-        .ticket-times .sep {
-            opacity: 0.6;
-        }
-
-        .ticket-badge {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.75em;
-            font-weight: bold;
-            white-space: nowrap;
-        }
-
-        .ticket-notch {
-            position: absolute;
-            right: 90px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: repeating-linear-gradient(to bottom,
-                    rgba(255, 255, 255, 0.4) 0px,
-                    rgba(255, 255, 255, 0.4) 6px,
-                    transparent 6px,
-                    transparent 12px);
-        }
-
-        .restaurant-grid {
+        /* ─── RESTAURANT SECTION ─── */
+        .rest-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 18px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+            margin-bottom: 36px;
         }
 
-        .restaurant-card {
-            background: white;
+        .rest {
+            background: #ffffff;
+            border: 1px solid rgba(224, 82, 122, 0.18);
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: 2px solid #f0f0f0;
+            box-shadow: 0 2px 10px rgba(224, 82, 122, 0.06);
+            transition: transform .2s, border-color .2s, box-shadow .2s;
         }
 
-        .restaurant-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(233, 30, 99, 0.2);
+        .rest:hover {
+            transform: translateY(-4px);
+            border-color: rgba(224, 82, 122, .35);
+            box-shadow: 0 8px 22px rgba(224, 82, 122, 0.13);
         }
 
-        .restaurant-card.recommended {
-            border-color: var(--gold);
+        .rest.star {
+            border-color: rgba(224, 82, 122, .3);
         }
 
-        .recommended-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: var(--gold);
-            color: #333;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.75em;
-            font-weight: bold;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-thumbnail {
-            height: 120px;
+        .rest-thumb {
+            height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3.5em;
+            font-size: 2.8em;
             position: relative;
         }
 
-        .card-thumbnail.sukiyaki {
-            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+        .rest-thumb .star-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(255, 255, 255, 0.85);
+            color: #9d2a4a;
+            border: 1px solid rgba(224, 82, 122, 0.3);
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: .55em;
+            font-weight: 700;
         }
 
-        .card-thumbnail.buffet {
-            background: linear-gradient(135deg, #FF6B6B 0%, #FFE66D 100%);
+        .rest-body {
+            padding: 16px;
         }
 
-        .card-thumbnail.washoku {
-            background: linear-gradient(135deg, #2E7D32 0%, #81C784 100%);
+        .genre-pill {
+            display: inline-block;
+            background: rgba(224, 82, 122, .1);
+            border: 1px solid rgba(224, 82, 122, .3);
+            color: #b03060;
+            padding: 2px 9px;
+            border-radius: 8px;
+            font-size: .68em;
+            font-weight: 700;
+            margin-bottom: 8px;
         }
 
-        .card-thumbnail.italian {
-            background: linear-gradient(135deg, #E53935 0%, #43A047 100%);
-        }
-
-        .card-thumbnail.dojo {
-            background: linear-gradient(135deg, #5D4037 0%, #8D6E63 100%);
-        }
-
-        .card-thumbnail.unagi {
-            background: linear-gradient(135deg, #6D4C41 0%, #A1887F 100%);
-        }
-
-        .card-thumbnail.tempura {
-            background: linear-gradient(135deg, #FFA726 0%, #FFE0B2 100%);
-        }
-
-        .card-thumbnail.hamburg {
-            background: linear-gradient(135deg, #5D4037 0%, #FF8A65 100%);
-        }
-
-        .card-thumbnail.french {
-            background: linear-gradient(135deg, #1565C0 0%, #E53935 100%);
-        }
-
-        .card-thumbnail.chinese {
-            background: linear-gradient(135deg, #C62828 0%, #FFCA28 100%);
-        }
-
-        .card-thumbnail.sushi {
-            background: linear-gradient(135deg, #0277BD 0%, #4FC3F7 100%);
-        }
-
-        .card-thumbnail.hokkaido {
-            background: linear-gradient(135deg, #0288D1 0%, #B3E5FC 100%);
-        }
-
-        .card-thumbnail.wagyu {
-            background: linear-gradient(135deg, #4E342E 0%, #D7CCC8 100%);
-        }
-
-        .card-body {
-            padding: 18px;
-        }
-
-        .card-header {
+        .rest-head {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
 
-        .card-body h4 {
-            color: var(--text-dark);
-            font-size: 1.1em;
-            margin-bottom: 5px;
+        .rest-head h4 {
+            font-size: .95em;
+            font-weight: 700;
         }
 
-        .rating {
+        .stars-txt {
             color: var(--gold);
-            font-size: 0.9em;
-            white-space: nowrap;
+            font-size: .8em;
         }
 
-        .genre-tag {
+        .price-tag {
             display: inline-block;
-            background: var(--sakura-light);
-            color: var(--sakura-dark);
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.75em;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .info-grid {
-            display: grid;
-            gap: 8px;
-            margin: 10px 0;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-            font-size: 0.85em;
-        }
-
-        .info-item .icon {
-            flex-shrink: 0;
-            width: 20px;
-        }
-
-        .info-item .label {
-            color: var(--text-light);
-        }
-
-        .price-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
-            color: white;
-            padding: 5px 12px;
+            background: rgba(5, 150, 105, .1);
+            border: 1px solid rgba(5, 150, 105, .3);
+            color: #065f46;
+            padding: 3px 10px;
             border-radius: 8px;
-            font-size: 0.85em;
-            font-weight: bold;
+            font-size: .75em;
+            font-weight: 700;
+            margin: 6px 0;
+        }
+
+        .rest-info {
             margin: 8px 0;
         }
 
-        .card-links {
+        .ri {
             display: flex;
-            gap: 8px;
-            margin-top: 15px;
-            flex-wrap: wrap;
+            gap: 6px;
+            font-size: .78em;
+            margin-bottom: 3px;
         }
 
-        .card-link {
+        .ri span {
+            color: var(--muted);
+        }
+
+        .rest-links {
+            display: flex;
+            gap: 7px;
+            margin-top: 12px;
+        }
+
+        .rl {
             flex: 1;
-            min-width: 100px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 5px;
-            padding: 10px 14px;
-            background: #f5f5f5;
-            border-radius: 8px;
-            font-size: 0.8em;
-            color: var(--text-dark);
+            gap: 4px;
+            padding: 8px 8px;
+            border-radius: 9px;
+            font-size: .74em;
+            font-weight: 700;
             text-decoration: none;
-            transition: all 0.2s;
-            font-weight: bold;
+            transition: filter .2s;
         }
 
-        .card-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        .rl:hover {
+            filter: brightness(1.15);
         }
 
-        .card-link.tabelog {
-            background: #FF6B00;
-            color: white;
+        .rl.tb {
+            background: rgba(224, 82, 122, 0.12);
+            border: 1px solid rgba(224, 82, 122, 0.3);
+            color: #9d2a4a;
         }
 
-        .card-link.tabelog:hover {
-            background: #E55D00;
+        .rl.mp {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            color: #3730a3;
         }
 
-        .card-link.map {
-            background: #4285F4;
-            color: white;
+        .rl.ph {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            color: #065f46;
         }
 
-        .card-link.map:hover {
-            background: #3367D6;
-        }
-
-        .card-link.tel {
-            background: #34A853;
-            color: white;
-        }
-
-        .card-link.tel:hover {
-            background: #2D9248;
-        }
-
-        .warning-box {
-            background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
-            border-radius: 12px;
-            padding: 20px;
-            border-left: 5px solid #FF9800;
-            margin-top: 25px;
-        }
-
-        .warning-box h4 {
-            color: #E65100;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-            font-size: 1.1em;
-        }
-
-        .warning-item {
-            display: flex;
-            align-items: flex-start;
+        /* ─── ALERT ─── */
+        .alerts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 12px;
-            margin-bottom: 12px;
-            font-size: 0.95em;
+            margin-bottom: 36px;
         }
 
-        .warning-item:last-child {
-            margin-bottom: 0;
+        .alert-item {
+            background: #ffffff;
+            border: 1px solid rgba(224, 82, 122, 0.18);
+            border-radius: 14px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(224, 82, 122, 0.06);
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
         }
 
-        .warning-item .icon {
-            font-size: 1.2em;
+        .alert-item .aic {
+            font-size: 1.4em;
             flex-shrink: 0;
         }
 
-        .footer {
-            text-align: center;
-            padding: 25px;
-            color: var(--text-light);
-            font-size: 0.85em;
+        .alert-item h5 {
+            font-size: .85em;
+            font-weight: 700;
+            margin-bottom: 3px;
         }
 
-        .section-intro {
+        .alert-item p {
+            font-size: .78em;
+            color: var(--muted);
+        }
+
+        /* ─── ANIMATE SECTION ─── */
+        .animate-card {
+            background: linear-gradient(135deg, #fff0f8, #fce4ec);
+            border: 1px solid rgba(224, 82, 122, .3);
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 36px;
             display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--sakura-light);
+            gap: 20px;
+            align-items: flex-start;
+            box-shadow: 0 4px 16px rgba(224, 82, 122, 0.1);
         }
 
-        .section-intro .icon {
-            font-size: 1.8em;
+        .animate-card .big-emo {
+            font-size: 3em;
+            flex-shrink: 0;
         }
 
-        .section-intro h3 {
-            color: var(--sakura-dark);
-            font-size: 1.2em;
+        .animate-card h3 {
+            font-size: 1.1em;
+            font-weight: 900;
+            margin-bottom: 6px;
         }
 
-        .section-intro .note {
-            color: var(--text-light);
-            font-size: 0.9em;
-            margin-left: auto;
+        .animate-card .ac-sub {
+            font-size: .82em;
+            color: var(--muted);
+            margin-bottom: 12px;
         }
 
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
+        .animate-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
 
-            .header h1 {
-                font-size: 1.4em;
-            }
+        .anp {
+            background: rgba(224, 82, 122, .12);
+            border: 1px solid rgba(224, 82, 122, .3);
+            color: #9d2a4a;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-size: .75em;
+            font-weight: 700;
+        }
 
-            .quick-summary {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        /* ─── FOOTER ─── */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: .8em;
+        }
 
-            .tabs {
-                gap: 5px;
-            }
-
-            .tab-btn {
-                padding: 12px 10px;
-                font-size: 0.9em;
-                min-width: 90px;
-            }
-
-            .tab-btn .icon {
-                font-size: 1.3em;
-            }
-
-            .tab-content {
-                padding: 18px;
-            }
-
-            .restaurant-grid {
+        @media(max-width:600px) {
+            .ticket-row {
                 grid-template-columns: 1fr;
             }
 
-            .card-thumbnail {
-                height: 100px;
-                font-size: 3em;
+            .block-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .rest-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .animate-card {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .tl-time {
+                width: 42px;
+                padding-right: 10px;
+            }
+
+            .tl-track {
+                left: 42px;
+            }
+
+            .tl-dot {
+                margin-left: -7px;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>🗼 東京日帰り家族旅行</h1>
-            <div class="date">2026年3月28日（土）</div>
-            <div class="subtitle">卒業・進級のお祝いを兼ねた特別プラン</div>
-            <div class="member-badges">
-                <span class="badge">👨‍👩‍👧‍👦 たけし家 4名</span>
-                <span class="badge">👨‍👩‍👧‍👦 兄家族 4名</span>
-            </div>
-        </header>
 
-        <div class="quick-summary">
-            <div class="summary-card">
-                <div class="emoji">👥</div>
-                <div class="label">参加人数</div>
-                <div class="value">計8名</div>
-            </div>
-            <div class="summary-card">
-                <div class="emoji">🛫</div>
-                <div class="label">往路</div>
-                <div class="value">NH18便</div>
-            </div>
-            <div class="summary-card">
-                <div class="emoji">🚄</div>
-                <div class="label">復路</div>
-                <div class="value">のぞみ91号</div>
-            </div>
-            <div class="summary-card">
-                <div class="emoji">🌸</div>
-                <div class="label">シーズン</div>
-                <div class="value">桜満開</div>
-            </div>
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-date">2026年3月28日（土）</div>
+        <h1>東京家族旅行 🌸</h1>
+        <div class="sub">卒業・進級お祝いスペシャル</div>
+        <div class="hero-pills">
+            <span class="pill">✈️ ANA018便で往路</span>
+            <span class="pill">⛩️ 浅草観光&ランチ</span>
+            <span class="pill">🎌 アニメイト池袋</span>
+            <span class="pill">🍽️ 兄家族とディナー</span>
+            <span class="pill">🚄 のぞみ507号で帰宅</span>
         </div>
-
-        <div class="tabs">
-            <button class="tab-btn active" onclick="showTab('schedule')"><span class="icon">📍</span>スケジュール</button>
-            <button class="tab-btn" onclick="showTab('lunch')"><span class="icon">🍽️</span>浅草ランチ</button>
-            <button class="tab-btn" onclick="showTab('dinner')"><span class="icon">🍷</span>東京駅ディナー</button>
-        </div>
-
-        <!-- スケジュールタブ -->
-        <div id="schedule" class="tab-content active">
-            <div class="section-intro"><span class="icon">🗓️</span>
-                <h3>移動スケジュール</h3><span class="note">全行程タイムライン</span>
-            </div>
-
-            <div class="timeline">
-                <div class="timeline-item"><span class="time-badge">06:40</span>
-                    <h4>🏠 自宅（中書島）出発</h4>
-                    <div class="detail">マイカーで京都駅へ</div>
-                </div>
-                <div class="transport"><span class="emoji">🚗</span><span>油小路通経由 → 約25分</span></div>
-                <div class="timeline-item"><span class="time-badge">07:05 - 07:20</span>
-                    <h4>🅿️ 京都駅八条口 駐車場</h4>
-                    <div class="detail">駐車してバス停へ移動</div>
-                </div>
-                <div class="transport"><span class="emoji">🚌</span><span>空港リムジンバス（K1乗り場）07:20発 → 約50分 →
-                        伊丹ANA南ターミナル08:10着</span></div>
-                <div class="timeline-item"><span class="time-badge">08:15 - 09:00</span>
-                    <h4>✈️ 伊丹空港</h4>
-                    <div class="detail">保安検査・ラウンジ利用</div>
-                </div>
-
-                <!-- 往路フライト チケットカード -->
-                <div class="ticket-card airplane">
-                    <div class="ticket-notch"></div>
-                    <div class="ticket-inner">
-                        <div class="ticket-icon">✈️</div>
-                        <div class="ticket-detail">
-                            <div class="ticket-route">
-                                <span>伊丹 (ITM)</span>
-                                <span class="arrow">→</span>
-                                <span>羽田 (HND)</span>
-                            </div>
-                            <div class="ticket-times">
-                                <span class="dep">09:00</span>
-                                <span class="sep">発 ─ 着</span>
-                                <span class="arr">10:10</span>
-                                <span class="sep">（約70分）</span>
-                            </div>
-                        </div>
-                        <div class="ticket-badge">NH18便</div>
-                    </div>
-                </div>
-
-                <div class="timeline-item"><span class="time-badge">10:10 - 10:25</span>
-                    <h4>🛬 羽田空港 第2ターミナル</h4>
-                    <div class="detail">地下ホームへ移動</div>
-                </div>
-                <div class="transport"><span class="emoji">🚃</span><span>京急・都営線（エアポート快特）→ 約45分</span></div>
-                <div class="timeline-item highlight"><span class="time-badge">11:10 - 14:20</span>
-                    <h4>⛩️ 浅草</h4>
-                    <div class="detail">観光・ランチ（4名）</div><span class="duration">🕐 滞在 3時間10分</span>
-                </div>
-                <div class="transport"><span class="emoji">🚃</span><span>東京メトロ銀座線→丸ノ内線 乗換 → 約35分</span></div>
-                <div class="timeline-item highlight"><span class="time-badge">14:55 - 17:10</span>
-                    <h4>🛍️ 池袋 – アニメイト本店</h4>
-                    <div class="detail">アニメ・マンガグッズショッピング</div>
-                    <div class="detail" style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px;">
-                        <span
-                            style="display:inline-flex; align-items:center; gap:4px; background:white; border-radius:8px; padding:4px 10px; font-size:0.8em; font-weight:bold; color:#E91E63; border: 1px solid #FFB7C5;">📚
-                            アニメイト池袋本店</span>
-                        <a href="https://www.google.com/maps/search/?api=1&query=アニメイト池袋本店" target="_blank"
-                            style="display:inline-flex; align-items:center; gap:4px; background:#4285F4; color:white; border-radius:8px; padding:4px 10px; font-size:0.8em; font-weight:bold; text-decoration:none;">🗺️
-                            地図</a>
-                    </div>
-                    <span class="duration">🕐 滞在 約2時間15分</span>
-                </div>
-                <div class="transport"><span class="emoji">🚃</span><span>東京メトロ丸ノ内線（池袋→東京） → 約20分</span></div>
-                <div class="timeline-item highlight"><span class="time-badge">17:30 - 20:21</span>
-                    <h4>🏛️ 東京駅（丸の内周辺）</h4>
-                    <div class="detail">兄家族と合流・ディナー（8名）</div><span class="duration">🕐 滞在 2時間51分</span>
-                </div>
-
-                <!-- 復路新幹線 チケットカード -->
-                <div class="ticket-card shinkansen">
-                    <div class="ticket-notch"></div>
-                    <div class="ticket-inner">
-                        <div class="ticket-icon">🚄</div>
-                        <div class="ticket-detail">
-                            <div class="ticket-route">
-                                <span>東京</span>
-                                <span class="arrow">→</span>
-                                <span>京都</span>
-                            </div>
-                            <div class="ticket-times">
-                                <span class="dep">20:21</span>
-                                <span class="sep">発 ─ 着</span>
-                                <span class="arr">22:31</span>
-                                <span class="sep">（約130分）</span>
-                            </div>
-                        </div>
-                        <div class="ticket-badge">のぞみ91号</div>
-                    </div>
-                </div>
-                <div class="timeline-item"><span class="time-badge">22:31 - 22:45</span>
-                    <h4>🚉 京都駅</h4>
-                    <div class="detail">新幹線ホームから駐車場へ</div>
-                </div>
-                <div class="transport"><span class="emoji">🚗</span><span>マイカー帰宅 → 約20分</span></div>
-                <div class="timeline-item"><span class="time-badge">23:05</span>
-                    <h4>🏠 自宅（中書島）到着</h4>
-                    <div class="detail">お疲れさまでした！</div>
-                </div>
-            </div>
-
-            <div class="warning-box">
-                <h4>⚠️ 3月28日（土）のリスク管理</h4>
-                <div class="warning-item"><span class="icon">🚨</span>
-                    <div><strong>激混み警報</strong><br>土曜日＋春休み＋桜満開 → 浅草は「歩行困難」レベルの混雑予想</div>
-                </div>
-                <div class="warning-item"><span class="icon">📅</span>
-                    <div><strong>予約必須</strong><br>12:30ランチ、18:00ディナー → <strong>2月初旬までに予約完了推奨</strong></div>
-                </div>
-                <div class="warning-item"><span class="icon">⏱️</span>
-                    <div><strong>移動バッファ</strong><br>駅構内の移動に普段の1.5倍の時間を想定</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 浅草ランチタブ -->
-        <div id="lunch" class="tab-content">
-            <div class="section-intro"><span class="icon">🌸</span>
-                <h3>浅草ランチ候補</h3><span class="note">4名｜予算 ¥4,000-8,000/人</span>
-            </div>
-
-            <div class="restaurant-grid">
-                <!-- おすすめ1 -->
-                <div class="restaurant-card recommended">
-                    <div class="card-thumbnail sukiyaki">
-                        🥩
-                        <span class="recommended-badge">⭐ おすすめ</span>
-                    </div>
-                    <div class="card-body">
-                        <span class="genre-tag">すき焼き</span>
-                        <div class="card-header">
-                            <h4>浅草今半 国際通り本店</h4>
-                            <div class="rating">★★★★ 3.8</div>
-                        </div>
-                        <div class="price-badge">💰 ランチ ¥5,500〜¥15,000</div>
-                        <div class="info-grid">
-                            <div class="info-item"><span class="icon">📍</span><span class="label">雷門から徒歩3分</span></div>
-                            <div class="info-item"><span class="icon">🕐</span><span
-                                    class="label">11:30-22:00（L.O.21:30）</span></div>
-                            <div class="info-item"><span class="icon">✨</span><span
-                                    class="label">明治28年創業の老舗！極上肉を目の前で調理</span></div>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://tabelog.com/tokyo/A1311/A131102/13003649/" target="_blank"
-                                class="card-link tabelog">📖 食べログ</a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=浅草今半+国際通り本店" target="_blank"
-                                class="card-link map">🗺️ 地図</a>
-                            <a href="tel:0338421114" class="card-link tel">📞 予約</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- おすすめ2 -->
-                <div class="restaurant-card recommended">
-                    <div class="card-thumbnail buffet">
-                        🍴
-                        <span class="recommended-badge">⭐ おすすめ</span>
-                    </div>
-                    <div class="card-body">
-                        <span class="genre-tag">ブッフェ</span>
-                        <div class="card-header">
-                            <h4>スカイグリルブッフェ武藏</h4>
-                            <div class="rating">★★★★ 3.7</div>
-                        </div>
-                        <div class="price-badge">💰 ランチ ¥4,800〜¥6,800</div>
-                        <div class="info-grid">
-                            <div class="info-item"><span class="icon">📍</span><span class="label">つくばSC浅草駅直結</span>
-                            </div>
-                            <div class="info-item"><span class="icon">🕐</span><span
-                                    class="label">11:30-15:00（90分制）</span></div>
-                            <div class="info-item"><span class="icon">✨</span><span
-                                    class="label">26階絶景！100種類から選べる</span></div>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://tabelog.com/tokyo/A1311/A131102/13141483/" target="_blank"
-                                class="card-link tabelog">📖 食べログ</a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=スカイグリルブッフェ武藏" target="_blank"
-                                class="card-link map">🗺️ 地図</a>
-                            <a href="tel:0338477111" class="card-link tel">📞 予約</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="restaurant-card">
-                    <div class="card-thumbnail washoku">🍚</div>
-                    <div class="card-body">
-                        <span class="genre-tag">和食</span>
-                        <div class="card-header">
-                            <h4>浅草むぎとろ 本店</h4>
-                            <div class="rating">★★★ 3.5</div>
-                        </div>
-                        <div class="price-badge">💰 ランチ ¥2,000〜¥4,000</div>
-                        <div class="info-grid">
-                            <div class="info-item"><span class="icon">📍</span><span class="label">雷門から徒歩5分</span></div>
-                            <div class="info-item"><span class="icon">🕐</span><span class="label">11:00-22:00</span>
-                            </div>
-                            <div class="info-item"><span class="icon">✨</span><span class="label">隅田川＆スカイツリー眺望</span>
-                            </div>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://tabelog.com/tokyo/A1311/A131102/13003680/" target="_blank"
-                                class="card-link tabelog">📖 食べログ</a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=浅草むぎとろ+本店" target="_blank"
-                                class="card-link map">🗺️ 地図</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="restaurant-card">
-                    <div class="card-thumbnail unagi">🍱</div>
-                    <div class="card-body">
-                        <span class="genre-tag">鰻</span>
-                        <div class="card-header">
-                            <h4>鰻 駒形 前川</h4>
-                            <div class="rating">★★★★ 3.7</div>
-                        </div>
-                        <div class="price-badge">💰 ランチ ¥5,000〜¥10,000</div>
-                        <div class="info-grid">
-                            <div class="info-item"><span class="icon">📍</span><span class="label">駒形駅徒歩2分</span></div>
-                            <div class="info-item"><span class="icon">🕐</span><span class="label">11:30-21:00</span>
-                            </div>
-                            <div class="info-item"><span class="icon">✨</span><span class="label">個室あり・隅田川一望</span>
-                            </div>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://tabelog.com/tokyo/A1311/A131102/13003666/" target="_blank"
-                                class="card-link tabelog">📖 食べログ</a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=鰻+駒形+前川" target="_blank"
-                                class="card-link map">🗺️ 地図</a>
-                            <a href="tel:0338428896" class="card-link tel">📞 予約</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="restaurant-card">
-                    <div class="card-thumbnail tempura">🍤</div>
-                    <div class="card-body">
-                        <span class="genre-tag">天ぷら</span>
-                        <div class="card-header">
-                            <h4>中清（なかせい）</h4>
-                            <div class="rating">★★★★ 3.6</div>
-                        </div>
-                        <div class="price-badge">💰 ランチ ¥6,000〜¥12,000</div>
-                        <div class="info-grid">
-                            <div class="info-item"><span class="icon">📍</span><span class="label">雷門から徒歩4分</span></div>
-                            <div class="info-item"><span class="icon">🕐</span><span class="label">11:30-21:30</span>
-                            </div>
-                            <div class="info-item"><span class="icon">✨</span><span class="label">明治3年創業・個室あり</span>
-                            </div>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://tabelog.com/tokyo/A1311/A131102/13003659/" target="_blank"
-                                class="card-link tabelog">📖 食べログ</a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=中清+浅草" target="_blank"
-                                class="card-link map">🗺️ 地図</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="restaurant-card">
-                    <div class="card-thumbnail dojo">🐟</div>
-                    <div class="card-body">
-                        <span class="genre-tag">江戸料理</span>
-                        <div class="card-header">
-                            <h4>駒形どぜう 本店</h4>
-                            <div class="rating">★★★ 3.4</div>
-                        </div>
-                        <div class="price-badge">💰 ランチ ¥2,000〜¥4,000</div>
-                        <div class="info-grid">
-                            <div class="info-item"><span class="icon">📍</span><span class="label">駒形駅徒歩1分</span></div>
-                            <div class="info-item"><span class="icon">🕐</span><span class="label">11:00-21:00</span>
-                            </div>
-                            <div class="info-item"><span class="icon">✨</span><span class="label">200年の伝統・座敷席</span>
-                            </div>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://tabelog.com/tokyo/A1311/A131102/13003684/" target="_blank"
-                                class="card-link tabelog">📖 食べログ</a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=駒形どぜう" target="_blank"
-                                class="card-link map">🗺️ 地図</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="restaurant-card recommended">
-                    <div class="card-thumbnail tempura">
-                        🔥
-                        <span class="recommended-badge">👨‍👩‍👧‍👦 中高生向け</span>
-                    </div>
-                    <div class="card-body">
-                        <span class="genre-tag">もんじゃ焼き</span>
-                        <div class="card-header">
-                            <h4>浅草もんじゃ もんろう</h4>
-                            <div class="rating">★★★ 3.3</div>
-                        </div>
-                        <div class="price-badge">💰 ランチ ¥1,000〜¥2,000</div>
-                        <div class="info-grid">
-                            <div class="info-item"><span class="icon">📍</span><span class="label">つくばEXP浅草駅徒歩2分</span>
-                            </div>
-                            <div class="info-item"><span class="icon">🕐</span><span
-                                    class="label">11:30-22:00（L.O.21:30）</span></div>
-                            <div class="info-item"><span class="icon">✨</span><span
-                                    class="label">自分で焼く体験・豊洲直送海鮮・ネット予約可</span></div>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://tabelog.com/tokyo/A1311/A131102/13300191/" target="_blank"
-                                class="card-link tabelog">📖 食べログ</a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=浅草もんじゃ+もんろう" target="_blank"
-                                class="card-link map">🗺️ 地図</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="restaurant-card recommended">
-                    <div class="card-thumbnail italian">
-                        🍝
-                        <span class="recommended-badge">👨‍👩‍👧‍👦 中高生向け</span>
-                    </div>
-                    <div class="card-body">
-                        <span class="genre-tag">イタリアン</span>
-                        <div class="card-header">
-                            <h4>LaVASARA 別邸</h4>
-                            <div class="rating">★★★ 3.3</div>
-                        </div>
-                        <div class="price-badge">💰 ランチ ¥2,000〜¥3,000</div>
-                        <div class="info-grid">
-                            <div class="info-item"><span class="icon">📍</span><span class="label">浅草寺から徒歩30秒・古民家</span>
-                            </div>
-                            <div class="info-item"><span class="icon">🕐</span><span
-                                    class="label">11:30-22:00（L.O.21:00）</span></div>
-                            <div class="info-item"><span class="icon">✨</span><span
-                                    class="label">おしゃれ古民家・パスタ&ピザ・ネット予約可</span></div>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://tabelog.com/tokyo/A1311/A131102/13286295/" target="_blank"
-                                class="card-link tabelog">📖 食べログ</a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=LaVASARA+別邸+浅草" target="_blank"
-                                class="card-link map">🗺️ 地図</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="restaurant-card">
-                    <div class="card-thumbnail sukiyaki">🥩</div>
-                    <div class="card-body">
-                        <span class="genre-tag">焼肉</span>
-                        <div class="card-header">
-                            <h4>本とさや</h4>
-                            <div class="rating">★★★★ 3.8</div>
-                        </div>
-                        <div class="price-badge">💰 ランチ ¥6,000〜¥8,000</div>
-                        <div class="info-grid">
-                            <div class="info-item"><span class="icon">📍</span><span class="label">つくばEXP浅草駅徒歩3分</span>
-                            </div>
-                            <div class="info-item"><span class="icon">🕐</span><span
-                                    class="label">11:30-14:30/17:00-22:00</span></div>
-                            <div class="info-item"><span class="icon">✨</span><span
-                                    class="label">浅草の名店・炭火焼肉・食べ盛りの学生に最適</span></div>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://tabelog.com/tokyo/A1311/A131102/13003711/" target="_blank"
-                                class="card-link tabelog">📖 食べログ</a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=本とさや+浅草" target="_blank"
-                                class="card-link map">🗺️ 地図</a>
-                            <a href="tel:0338427373" class="card-link tel">📞 予約</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="restaurant-card">
-                    <div class="card-thumbnail hamburg">🍔</div>
-                    <div class="card-body">
-                        <span class="genre-tag">洋食</span>
-                        <div class="card-header">
-                            <h4>グリル グランド</h4>
-                            <div class="rating">★★★★ 3.7</div>
-                        </div>
-                        <div class="price-badge">💰 ランチ ¥3,000〜¥4,000</div>
-                        <div class="info-grid">
-                            <div class="info-item"><span class="icon">📍</span><span class="label">浅草駅徒歩5分・路地裏の名店</span>
-                            </div>
-                            <div class="info-item"><span class="icon">🕐</span><span
-                                    class="label">11:30-14:30/17:00-21:00</span></div>
-                            <div class="info-item"><span class="icon">✨</span><span
-                                    class="label">絶品オムライス&ハンバーグ・ランチ予約不可</span></div>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://tabelog.com/tokyo/A1311/A131102/13008702/" target="_blank"
-                                class="card-link tabelog">📖 食べログ</a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=グリルグランド+浅草" target="_blank"
-                                class="card-link map">🗺️ 地図</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 東京駅ディナータブ -->
-        <div id="dinner" class="tab-content">
-            <div class="section-intro"><span class="icon">🌃</span>
-                <h3>東京駅ディナー候補</h3><span class="note">8名｜予算 ¥5,000-10,000/人｜子供連れOK</span>
-            </div>
-
-            <div class="restaurant-grid">
-                <!-- おすすめ1 -->
-                <div class="restaurant-card recommended">
-                    <div class="card-thumbnail italian">
-                        🍝
-                        <span class="recommended-badge">⭐ おすすめ</span>
-                    </div>
-                    <div class="card-body">
-                        <span class="genre-tag">イタリアン</span>
-                        <div class="card-header">
-                            <h4>XEX TOKYO</h4>
-                            <div class="rating">★★★ 3.5</div>
-                        </div>
-                        <div class="price-badge">💰 ディナー ¥6,000〜¥10,000</div>
-                        <div class="info-grid">
-                            <div class="info-item"><span class="icon">📍</span><span
-                                    class="label">大丸東京13F・八重洲北口直結</span></div>
-                            <div class="info-item"><span class="icon">🕐</span><span
-                                    class="label">17:30-23:00（平日）17:00-23:00（土日祝）</span></div>
-                            <div class="info-item"><span class="icon">✨</span><span class="label">個室あり・夜景・本格ピザ</span>
-                            </div>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://tabelog.com/tokyo/A1302/A130201/13044447/" target="_blank"
-                                class="card-link tabelog">📖 食べログ</a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=XEX+TOKYO+大丸" target="_blank"
-                                class="card-link map">🗺️ 地図</a>
-                            <a href="tel:0332121189" class="card-link tel">📞 予約</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- おすすめ2 -->
-                <div class="restaurant-card recommended">
-                    <div class="card-thumbnail hokkaido">
-                        🦀
-                        <span class="recommended-badge">⭐ おすすめ</span>
-                    </div>
-                    <div class="card-body">
-                        <span class="genre-tag">寿司・海鮮</span>
-                        <div class="card-header">
-                            <h4>くし路 KITTE丸の内店</h4>
-                            <div class="rating">★★★ 3.4</div>
-                        </div>
-                        <div class="price-badge">💰 ディナー ¥5,000〜¥8,000</div>
-                        <div class="info-grid">
-                            <div class="info-item"><span class="icon">📍</span><span class="label">KITTE
-                                    5F・丸の内南口徒歩1分</span></div>
-                            <div class="info-item"><span class="icon">🕐</span><span
-                                    class="label">17:00-22:00（L.O.21:00）</span></div>
-                            <div class="info-item"><span class="icon">✨</span><span class="label">完全個室あり・東京駅一望</span>
-                            </div>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://tabelog.com/tokyo/A1302/A130201/13153460/" target="_blank"
-                                class="card-link tabelog">📖 食べログ</a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=くし路+KITTE丸の内" target="_blank"
-                                class="card-link map">🗺️ 地図</a>
-                            <a href="tel:0332875855" class="card-link tel">📞 予約</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="restaurant-card">
-                    <div class="card-thumbnail chinese">🥡</div>
-                    <div class="card-body">
-                        <span class="genre-tag">中華</span>
-                        <div class="card-header">
-                            <h4>過門香 丸の内トラストタワー店</h4>
-                            <div class="rating">★★★ 3.5</div>
-                        </div>
-                        <div class="price-badge">💰 ディナー ¥5,000〜¥8,000</div>
-                        <div class="info-grid">
-                            <div class="info-item"><span class="icon">📍</span><span
-                                    class="label">丸の内トラストタワーN館2F・日本橋口徒歩1分</span></div>
-                            <div class="info-item"><span class="icon">🕐</span><span
-                                    class="label">11:00-23:00（L.O.22:00）</span></div>
-                            <div class="info-item"><span class="icon">✨</span><span class="label">本格四川料理・個室あり</span>
-                            </div>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://tabelog.com/tokyo/A1302/A130201/13033385/" target="_blank"
-                                class="card-link tabelog">📖 食べログ</a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=過門香+丸の内トラストタワー" target="_blank"
-                                class="card-link map">🗺️ 地図</a>
-                            <a href="tel:0362122211" class="card-link tel">📞 予約</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="restaurant-card">
-                    <div class="card-thumbnail wagyu">🥩</div>
-                    <div class="card-body">
-                        <span class="genre-tag">和食</span>
-                        <div class="card-header">
-                            <h4>京都祇園 八坂圓堂 大丸東京店</h4>
-                            <div class="rating">★★★ 3.4</div>
-                        </div>
-                        <div class="price-badge">💰 ディナー ¥8,000〜¥12,000</div>
-                        <div class="info-grid">
-                            <div class="info-item"><span class="icon">📍</span><span
-                                    class="label">大丸東京12F・東京駅徒歩1分</span></div>
-                            <div class="info-item"><span class="icon">🕐</span><span
-                                    class="label">11:00-23:00（L.O.22:00）</span></div>
-                            <div class="info-item"><span class="icon">✨</span><span class="label">個室あり（最大12名）・京料理</span>
-                            </div>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://tabelog.com/tokyo/A1302/A130201/13256644/" target="_blank"
-                                class="card-link tabelog">📖 食べログ</a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=八坂圓堂+大丸東京" target="_blank"
-                                class="card-link map">🗺️ 地図</a>
-                            <a href="tel:0332123522" class="card-link tel">📞 予約</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="restaurant-card">
-                    <div class="card-thumbnail chinese">🦆</div>
-                    <div class="card-body">
-                        <span class="genre-tag">北京ダック</span>
-                        <div class="card-header">
-                            <h4>全聚徳 丸ビル店</h4>
-                            <div class="rating">★★★ 3.3</div>
-                        </div>
-                        <div class="price-badge">💰 ディナー ¥10,000〜¥20,000</div>
-                        <div class="info-grid">
-                            <div class="info-item"><span class="icon">📍</span><span
-                                    class="label">丸ビル36F・丸の内南口徒歩1分</span></div>
-                            <div class="info-item"><span class="icon">🕐</span><span
-                                    class="label">17:00-22:00（L.O.21:00）</span></div>
-                            <div class="info-item"><span class="icon">✨</span><span class="label">完全個室あり（要個室料）・絶景</span>
-                            </div>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://tabelog.com/tokyo/A1302/A130201/13279220/" target="_blank"
-                                class="card-link tabelog">📖 食べログ</a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=全聚徳+丸ビル" target="_blank"
-                                class="card-link map">🗺️ 地図</a>
-                            <a href="tel:0362125588" class="card-link tel">📞 予約</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="restaurant-card">
-                    <div class="card-thumbnail french">🌃</div>
-                    <div class="card-body">
-                        <span class="genre-tag">フレンチ</span>
-                        <div class="card-header">
-                            <h4>BREEZE OF TOKYO</h4>
-                            <div class="rating">★★★ 3.5</div>
-                        </div>
-                        <div class="price-badge">💰 ディナー ¥10,000〜¥20,000</div>
-                        <div class="info-grid">
-                            <div class="info-item"><span class="icon">📍</span><span
-                                    class="label">丸ビル36F・丸の内南口徒歩2分</span></div>
-                            <div class="info-item"><span class="icon">🕐</span><span
-                                    class="label">17:30-22:00（L.O.21:00）</span></div>
-                            <div class="info-item"><span class="icon">✨</span><span
-                                    class="label">圧巻の夜景・記念日向け・個室あり</span></div>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://tabelog.com/tokyo/A1302/A130201/13009053/" target="_blank"
-                                class="card-link tabelog">📖 食べログ</a>
-                            <a href="https://www.google.com/maps/search/?api=1&query=BREEZE+OF+TOKYO+丸ビル"
-                                target="_blank" class="card-link map">🗺️ 地図</a>
-                            <a href="tel:0362125388" class="card-link tel">📞 予約</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <footer class="footer">
-            <p>🌸 素敵な家族旅行になりますように 🌸</p>
-            <p style="margin-top: 10px;">最終更新: 2026年3月1日</p>
-        </footer>
     </div>
 
-    <script>
-        function showTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
-        }
-    </script>
+    <div class="main">
+
+        <!-- 確定チケット -->
+        <div class="sec-title">確定チケット情報</div>
+        <div class="ticket-row">
+            <div class="ticket flight">
+                <div class="confirmed-tag">✓ 予約確定</div>
+                <div class="ticket-kind">✈️ 往路フライト</div>
+                <div class="ticket-route">大阪 伊丹<br>→ 東京 羽田</div>
+                <div class="ticket-row2">
+                    <div class="ticket-line">🔢 ANA018便（NH018）</div>
+                    <div class="ticket-line">🕘 09:00 発 → 10:10 着</div>
+                    <div class="ticket-line">💺 普通席 ／ スーパーバリュー75K</div>
+                    <div class="ticket-line">🔑 予約番号：0270 ／ 南ターミナル</div>
+                </div>
+                <div class="ticket-seats">
+                    <span class="seat">サオリ 8H</span>
+                    <span class="seat">タケシ 9H</span>
+                    <span class="seat">ハルト 9K</span>
+                    <span class="seat">リオ 8K</span>
+                </div>
+            </div>
+            <div class="ticket shinkansen">
+                <div class="confirmed-tag">✓ 予約確定</div>
+                <div class="ticket-kind">🚄 復路 新幹線</div>
+                <div class="ticket-route">東京<br>→ 京都</div>
+                <div class="ticket-row2">
+                    <div class="ticket-line">🔢 のぞみ507号（N700系16両）</div>
+                    <div class="ticket-line">🕗 20:30 発 → 22:42 着</div>
+                    <div class="ticket-line">💺 普通車 6号車 ／ EX予約</div>
+                    <div class="ticket-line">💴 ¥55,520（4名）/ お預かり：2123</div>
+                </div>
+                <div class="ticket-seats">
+                    <span class="seat">18番D席</span>
+                    <span class="seat">18番E席</span>
+                    <span class="seat">19番D席</span>
+                    <span class="seat">19番E席</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 今日のハイライト -->
+        <div class="sec-title">今日のハイライト</div>
+        <div class="block-grid">
+            <div class="block">
+                <div class="emo">⛩️</div>
+                <div class="b-time">11:15〜13:30</div>
+                <div class="b-name">浅草 観光＆ランチ</div>
+                <div class="b-sub">仲見世・浅草寺・ランチ</div>
+            </div>
+            <div class="block">
+                <div class="emo">🎌</div>
+                <div class="b-time">14:00〜17:00</div>
+                <div class="b-name">アニメイト池袋本店</div>
+                <div class="b-sub">大型旗艦店でお買物</div>
+            </div>
+            <div class="block">
+                <div class="emo">🍽️</div>
+                <div class="b-time">17:30〜20:00</div>
+                <div class="b-name">兄家族とディナー</div>
+                <div class="b-sub">東京駅周辺・8名</div>
+            </div>
+        </div>
+
+        <!-- タイムライン -->
+        <div class="sec-title">全行程タイムライン</div>
+        <div class="schedule">
+
+            <div class="sch-row">
+                <div class="sch-time">06:40</div>
+                <div class="sch-body">
+                    <div class="sch-bar bar-home"></div>
+                    <div class="sch-label">
+                        <div class="sl-title">🏠 自宅（中書島）出発</div>
+                        <div class="sl-sub">マイカーで京都駅へ</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sch-row transit">
+                <div class="sch-time">▼</div>
+                <div class="sch-body">🚗 油小路通経由 → 約25分</div>
+            </div>
+
+            <div class="sch-row">
+                <div class="sch-time">07:05</div>
+                <div class="sch-body">
+                    <div class="sch-bar bar-home"></div>
+                    <div class="sch-label">
+                        <div class="sl-title">🅿️ 京都駅 八条口 駐車</div>
+                        <div class="sl-sub">リムジンバス乗り場（H2）へ移動</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sch-row transit">
+                <div class="sch-time">▼</div>
+                <div class="sch-body">🚌 空港リムジンバス（H2乗り場）→ 約55分</div>
+            </div>
+
+            <div class="sch-row">
+                <div class="sch-time">08:15</div>
+                <div class="sch-body">
+                    <div class="sch-bar bar-flight"></div>
+                    <div class="sch-label">
+                        <div class="sl-title">✈️ 大阪 伊丹空港 到着</div>
+                        <div class="sl-sub">保安検査・ラウンジ</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sch-row">
+                <div class="sch-time">09:00</div>
+                <div class="sch-body">
+                    <div class="sch-bar bar-flight"></div>
+                    <div class="sch-label">
+                        <div class="sl-title">🛫 ANA018便 出発</div>
+                        <div class="sl-sub">大阪（伊丹）→ 東京（羽田）／ 南ターミナル</div>
+                        <div class="sl-sub" style="margin-top:4px;">💺 サオリ 8H &nbsp; タケシ 9H &nbsp; ハルト 9K &nbsp; リオ 8K
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sch-row transit">
+                <div class="sch-time">▼</div>
+                <div class="sch-body">✈️ ANA018便 → 約70分フライト</div>
+            </div>
+
+            <div class="sch-row">
+                <div class="sch-time">10:10</div>
+                <div class="sch-body">
+                    <div class="sch-bar bar-flight"></div>
+                    <div class="sch-label">
+                        <div class="sl-title">🛬 羽田空港 第2ターミナル 到着</div>
+                        <div class="sl-sub">手荷物受取 → 地下ホームへ</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sch-row transit">
+                <div class="sch-time">▼</div>
+                <div class="sch-body">🚃 京急・都営線 エアポート快特 → 約45分</div>
+            </div>
+
+            <div class="sch-row">
+                <div class="sch-time">11:15</div>
+                <div class="sch-body">
+                    <div class="sch-bar bar-main"></div>
+                    <div class="sch-label">
+                        <div class="sl-title">⛩️ 浅草 観光・ランチ</div>
+                        <div class="sl-sub">仲見世通り・浅草寺・お土産・ランチ（4名）</div>
+                        <div class="sl-dur">🕐 滞在 約2時間15分（〜13:30）</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sch-row transit">
+                <div class="sch-time">▼</div>
+                <div class="sch-body">🚃 つくばEXP or 地下鉄で池袋へ → 約25〜35分</div>
+            </div>
+
+            <div class="sch-row">
+                <div class="sch-time">14:00</div>
+                <div class="sch-body">
+                    <div class="sch-bar bar-main"></div>
+                    <div class="sch-label">
+                        <div class="sl-title">🎌 アニメイト池袋本店</div>
+                        <div class="sl-sub">サンシャイン通り近く・9階建て大型旗艦店</div>
+                        <div class="sl-dur">🕐 滞在 約3時間（〜17:00）</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sch-row transit">
+                <div class="sch-time">▼</div>
+                <div class="sch-body">🚃 山手線で東京・丸の内方面へ → 約20分</div>
+            </div>
+
+            <div class="sch-row">
+                <div class="sch-time">17:30</div>
+                <div class="sch-body">
+                    <div class="sch-bar bar-dinner"></div>
+                    <div class="sch-label">
+                        <div class="sl-title">🍽️ 兄家族とディナー（8名 合流）</div>
+                        <div class="sl-sub">東京駅・丸の内エリア</div>
+                        <div class="sl-dur">🕐 約2時間30分（〜20:00）</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sch-row transit">
+                <div class="sch-time">▼</div>
+                <div class="sch-body">🚶 東京駅 新幹線ホームへ移動</div>
+            </div>
+
+            <div class="sch-row">
+                <div class="sch-time">20:30</div>
+                <div class="sch-body">
+                    <div class="sch-bar bar-train"></div>
+                    <div class="sch-label">
+                        <div class="sl-title">🚄 のぞみ507号 東京 発</div>
+                        <div class="sl-sub">6号車 18番・19番 D・E席（4名）</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sch-row transit">
+                <div class="sch-time">▼</div>
+                <div class="sch-body">🚄 のぞみ507号 → 約132分</div>
+            </div>
+
+            <div class="sch-row">
+                <div class="sch-time">22:42</div>
+                <div class="sch-body">
+                    <div class="sch-bar bar-train"></div>
+                    <div class="sch-label">
+                        <div class="sl-title">🚉 京都駅 到着</div>
+                        <div class="sl-sub">ホームから駐車場へ → マイカーで帰宅</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sch-row transit">
+                <div class="sch-time">▼</div>
+                <div class="sch-body">🚗 マイカー → 約20分</div>
+            </div>
+
+            <div class="sch-row">
+                <div class="sch-time">23:05</div>
+                <div class="sch-body">
+                    <div class="sch-bar bar-home"></div>
+                    <div class="sch-label">
+                        <div class="sl-title">🏠 自宅（中書島）到着</div>
+                        <div class="sl-sub">お疲れさまでした！</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- アニメイト情報 -->
+        <div class="sec-title">アニメイト池袋本店</div>
+        <div class="animate-card">
+            <div class="big-emo">🎌</div>
+            <div>
+                <h3>アニメイト池袋本店</h3>
+                <div class="ac-sub">東京都豊島区東池袋1-20-7 ／ 池袋駅東口から徒歩約7分<br>
+                    📍 サンシャイン60通り沿い ／ 営業時間 10:00〜21:00</div>
+                <div class="animate-pills">
+                    <span class="anp">🏢 9階建て大型旗艦店</span>
+                    <span class="anp">📚 コミック全巻</span>
+                    <span class="anp">🎵 アニメCD・BD</span>
+                    <span class="anp">🎮 ゲーム・グッズ</span>
+                    <span class="anp">📦 限定商品多数</span>
+                </div>
+                <div style="margin-top:14px;display:flex;gap:8px;">
+                    <a href="https://www.google.com/maps/search/?api=1&query=アニメイト池袋本店" target="_blank" class="rl mp"
+                        style="flex:none;padding:8px 16px;">🗺️ Google Map</a>
+                    <a href="https://maps.apple.com/?q=アニメイト池袋本店&address=東京都豊島区東池袋1-20-7" target="_blank" class="rl ph"
+                        style="flex:none;padding:8px 16px;">🍎 Apple Map</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 浅草ランチ -->
+        <div class="sec-title">浅草 ランチ候補（4名）</div>
+        <div style="margin-bottom:14px;display:flex;gap:8px;">
+            <a href="https://www.google.com/maps/search/?api=1&query=浅草+仲見世通り" target="_blank" class="rl mp"
+                style="flex:none;padding:8px 16px;">🗺️ 浅草 Google Map</a>
+            <a href="https://maps.apple.com/?q=浅草寺&address=東京都台東区浅草2-3-1" target="_blank" class="rl ph"
+                style="flex:none;padding:8px 16px;">🍎 Apple Map</a>
+        </div>
+        <div class="rest-grid">
+
+            <div class="rest star">
+                <div class="rest-thumb" style="background:linear-gradient(135deg,#78350f,#b45309);">🥩<span
+                        class="star-badge">⭐ イチオシ</span></div>
+                <div class="rest-body">
+                    <span class="genre-pill">すき焼き</span>
+                    <div class="rest-head">
+                        <h4>浅草今半 国際通り本店</h4><span class="stars-txt">★★★★ 3.8</span>
+                    </div>
+                    <div class="price-tag">💰 ランチ ¥5,500〜15,000</div>
+                    <div class="rest-info">
+                        <div class="ri">📍<span>雷門から徒歩3分</span></div>
+                        <div class="ri">🕐<span>11:30〜22:00（L.O.21:30）</span></div>
+                        <div class="ri">✨<span>明治28年創業の老舗・要予約</span></div>
+                    </div>
+                    <div class="rest-links">
+                        <a href="https://tabelog.com/tokyo/A1311/A131102/13003649/" target="_blank" class="rl tb">📖
+                            食べログ</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=浅草今半+国際通り本店" target="_blank"
+                            class="rl mp">🗺️ 地図</a>
+                        <a href="tel:0338421114" class="rl ph">📞 予約</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rest star">
+                <div class="rest-thumb" style="background:linear-gradient(135deg,#422006,#92400e);">🍱<span
+                        class="star-badge">⭐ イチオシ</span></div>
+                <div class="rest-body">
+                    <span class="genre-pill">鰻</span>
+                    <div class="rest-head">
+                        <h4>鰻 駒形 前川</h4><span class="stars-txt">★★★★ 3.7</span>
+                    </div>
+                    <div class="price-tag">💰 ランチ ¥5,000〜10,000</div>
+                    <div class="rest-info">
+                        <div class="ri">📍<span>駒形駅徒歩2分</span></div>
+                        <div class="ri">🕐<span>11:30〜21:00</span></div>
+                        <div class="ri">✨<span>個室あり・隅田川一望・要予約</span></div>
+                    </div>
+                    <div class="rest-links">
+                        <a href="https://tabelog.com/tokyo/A1311/A131102/13003666/" target="_blank" class="rl tb">📖
+                            食べログ</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=鰻+駒形+前川" target="_blank"
+                            class="rl mp">🗺️ 地図</a>
+                        <a href="tel:0338428896" class="rl ph">📞 予約</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rest star">
+                <div class="rest-thumb" style="background:linear-gradient(135deg,#7c2d12,#ea580c);">🍤<span
+                        class="star-badge">⭐ イチオシ</span></div>
+                <div class="rest-body">
+                    <span class="genre-pill">天ぷら</span>
+                    <div class="rest-head">
+                        <h4>中清（なかせい）</h4><span class="stars-txt">★★★★ 3.6</span>
+                    </div>
+                    <div class="price-tag">💰 ランチ ¥6,000〜12,000</div>
+                    <div class="rest-info">
+                        <div class="ri">📍<span>雷門から徒歩4分</span></div>
+                        <div class="ri">🕐<span>11:30〜21:30</span></div>
+                        <div class="ri">✨<span>明治3年創業・個室あり</span></div>
+                    </div>
+                    <div class="rest-links">
+                        <a href="https://tabelog.com/tokyo/A1311/A131102/13003659/" target="_blank" class="rl tb">📖
+                            食べログ</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=中清+浅草+天ぷら" target="_blank"
+                            class="rl mp">🗺️ 地図</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rest">
+                <div class="rest-thumb" style="background:linear-gradient(135deg,#1e3a5f,#1e40af);">🍴</div>
+                <div class="rest-body">
+                    <span class="genre-pill">ブッフェ</span>
+                    <div class="rest-head">
+                        <h4>スカイグリルブッフェ武藏</h4><span class="stars-txt">★★★★ 3.7</span>
+                    </div>
+                    <div class="price-tag">💰 ランチ ¥4,800〜6,800</div>
+                    <div class="rest-info">
+                        <div class="ri">📍<span>つくばSC浅草駅直結・26階</span></div>
+                        <div class="ri">🕐<span>11:30〜15:00（90分制）</span></div>
+                        <div class="ri">✨<span>絶景ブッフェ・100種類以上</span></div>
+                    </div>
+                    <div class="rest-links">
+                        <a href="https://tabelog.com/tokyo/A1311/A131102/13141483/" target="_blank" class="rl tb">📖
+                            食べログ</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=スカイグリルブッフェ武藏+浅草" target="_blank"
+                            class="rl mp">🗺️ 地図</a>
+                        <a href="tel:0338477111" class="rl ph">📞 予約</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rest">
+                <div class="rest-thumb" style="background:linear-gradient(135deg,#3b0764,#7e22ce);">🍚</div>
+                <div class="rest-body">
+                    <span class="genre-pill">和食</span>
+                    <div class="rest-head">
+                        <h4>浅草むぎとろ 本店</h4><span class="stars-txt">★★★ 3.5</span>
+                    </div>
+                    <div class="price-tag">💰 ランチ ¥2,000〜4,000</div>
+                    <div class="rest-info">
+                        <div class="ri">📍<span>雷門から徒歩5分・隅田川沿い</span></div>
+                        <div class="ri">🕐<span>11:00〜22:00</span></div>
+                        <div class="ri">✨<span>隅田川＆スカイツリー眺望</span></div>
+                    </div>
+                    <div class="rest-links">
+                        <a href="https://tabelog.com/tokyo/A1311/A131102/13003680/" target="_blank" class="rl tb">📖
+                            食べログ</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=浅草むぎとろ+本店" target="_blank"
+                            class="rl mp">🗺️ 地図</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rest">
+                <div class="rest-thumb" style="background:linear-gradient(135deg,#1c1917,#78350f);">🍔</div>
+                <div class="rest-body">
+                    <span class="genre-pill">洋食</span>
+                    <div class="rest-head">
+                        <h4>グリル グランド</h4><span class="stars-txt">★★★★ 3.7</span>
+                    </div>
+                    <div class="price-tag">💰 ランチ ¥3,000〜4,000</div>
+                    <div class="rest-info">
+                        <div class="ri">📍<span>浅草駅徒歩5分・路地裏の名店</span></div>
+                        <div class="ri">🕐<span>11:30〜14:30 / 17:00〜21:00</span></div>
+                        <div class="ri">✨<span>絶品オムライス＆ハンバーグ（ランチ予約不可）</span></div>
+                    </div>
+                    <div class="rest-links">
+                        <a href="https://tabelog.com/tokyo/A1311/A131102/13008702/" target="_blank" class="rl tb">📖
+                            食べログ</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=グリルグランド+浅草" target="_blank"
+                            class="rl mp">🗺️ 地図</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ディナー -->
+        <div class="sec-title">兄家族とのディナー候補（8名）</div>
+        <div class="rest-grid">
+
+            <div class="rest star">
+                <div class="rest-thumb" style="background:linear-gradient(135deg,#1e3a8a,#dc2626);">🍝<span
+                        class="star-badge">⭐ 東京駅直結</span></div>
+                <div class="rest-body">
+                    <span class="genre-pill">イタリアン</span>
+                    <div class="rest-head">
+                        <h4>XEX TOKYO</h4><span class="stars-txt">★★★ 3.5</span>
+                    </div>
+                    <div class="price-tag">💰 ディナー ¥6,000〜10,000</div>
+                    <div class="rest-info">
+                        <div class="ri">📍<span>大丸東京13F・八重洲北口直結</span></div>
+                        <div class="ri">🕐<span>土日 17:00〜23:00</span></div>
+                        <div class="ri">✨<span>個室あり・夜景・8名OK</span></div>
+                    </div>
+                    <div class="rest-links">
+                        <a href="https://tabelog.com/tokyo/A1302/A130201/13044447/" target="_blank" class="rl tb">📖
+                            食べログ</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=XEX+TOKYO+大丸東京" target="_blank"
+                            class="rl mp">🗺️ 地図</a>
+                        <a href="tel:0332121189" class="rl ph">📞 予約</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rest star">
+                <div class="rest-thumb" style="background:linear-gradient(135deg,#1a3a2a,#065f46);">🦀<span
+                        class="star-badge">⭐ KITTE</span></div>
+                <div class="rest-body">
+                    <span class="genre-pill">寿司・海鮮</span>
+                    <div class="rest-head">
+                        <h4>くし路 KITTE丸の内店</h4><span class="stars-txt">★★★ 3.4</span>
+                    </div>
+                    <div class="price-tag">💰 ディナー ¥5,000〜8,000</div>
+                    <div class="rest-info">
+                        <div class="ri">📍<span>KITTE 5F・丸の内南口徒歩1分</span></div>
+                        <div class="ri">🕐<span>17:00〜22:00（L.O.21:00）</span></div>
+                        <div class="ri">✨<span>完全個室・東京駅一望</span></div>
+                    </div>
+                    <div class="rest-links">
+                        <a href="https://tabelog.com/tokyo/A1302/A130201/13153460/" target="_blank" class="rl tb">📖
+                            食べログ</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=くし路+KITTE丸の内" target="_blank"
+                            class="rl mp">🗺️ 地図</a>
+                        <a href="tel:0332875855" class="rl ph">📞 予約</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rest star">
+                <div class="rest-thumb" style="background:linear-gradient(135deg,#3b1a00,#7c2d12);">🥩<span
+                        class="star-badge">⭐ 京料理</span></div>
+                <div class="rest-body">
+                    <span class="genre-pill">京料理・和食</span>
+                    <div class="rest-head">
+                        <h4>八坂圓堂 大丸東京店</h4><span class="stars-txt">★★★ 3.4</span>
+                    </div>
+                    <div class="price-tag">💰 ディナー ¥8,000〜12,000</div>
+                    <div class="rest-info">
+                        <div class="ri">📍<span>大丸東京12F・東京駅徒歩1分</span></div>
+                        <div class="ri">🕐<span>11:00〜23:00（L.O.22:00）</span></div>
+                        <div class="ri">✨<span>個室最大12名・京料理</span></div>
+                    </div>
+                    <div class="rest-links">
+                        <a href="https://tabelog.com/tokyo/A1302/A130201/13256644/" target="_blank" class="rl tb">📖
+                            食べログ</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=八坂圓堂+大丸東京" target="_blank"
+                            class="rl mp">🗺️ 地図</a>
+                        <a href="tel:0332123522" class="rl ph">📞 予約</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rest">
+                <div class="rest-thumb" style="background:linear-gradient(135deg,#450a0a,#991b1b);">🥡</div>
+                <div class="rest-body">
+                    <span class="genre-pill">中華・四川</span>
+                    <div class="rest-head">
+                        <h4>過門香 丸の内トラストタワー店</h4><span class="stars-txt">★★★ 3.5</span>
+                    </div>
+                    <div class="price-tag">💰 ディナー ¥5,000〜8,000</div>
+                    <div class="rest-info">
+                        <div class="ri">📍<span>丸の内トラストタワーN館2F</span></div>
+                        <div class="ri">🕐<span>11:00〜23:00（L.O.22:00）</span></div>
+                        <div class="ri">✨<span>本格四川料理・個室あり</span></div>
+                    </div>
+                    <div class="rest-links">
+                        <a href="https://tabelog.com/tokyo/A1302/A130201/13033385/" target="_blank" class="rl tb">📖
+                            食べログ</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=過門香+丸の内トラストタワー" target="_blank"
+                            class="rl mp">🗺️ 地図</a>
+                        <a href="tel:0362122211" class="rl ph">📞 予約</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rest">
+                <div class="rest-thumb" style="background:linear-gradient(135deg,#172554,#7f1d1d);">🌃</div>
+                <div class="rest-body">
+                    <span class="genre-pill">フレンチ</span>
+                    <div class="rest-head">
+                        <h4>BREEZE OF TOKYO</h4><span class="stars-txt">★★★ 3.5</span>
+                    </div>
+                    <div class="price-tag">💰 ディナー ¥10,000〜20,000</div>
+                    <div class="rest-info">
+                        <div class="ri">📍<span>丸ビル36F・丸の内南口徒歩2分</span></div>
+                        <div class="ri">🕐<span>17:30〜22:00（L.O.21:00）</span></div>
+                        <div class="ri">✨<span>圧巻夜景・個室あり・特別感◎</span></div>
+                    </div>
+                    <div class="rest-links">
+                        <a href="https://tabelog.com/tokyo/A1302/A130201/13009053/" target="_blank" class="rl tb">📖
+                            食べログ</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=BREEZE+OF+TOKYO+丸ビル" target="_blank"
+                            class="rl mp">🗺️ 地図</a>
+                        <a href="tel:0362125388" class="rl ph">📞 予約</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 注意事項 -->
+        <div class="sec-title">当日の注意事項</div>
+        <div class="alerts">
+            <div class="alert-item">
+                <span class="aic">🚨</span>
+                <div>
+                    <h5>激混み注意</h5>
+                    <p>土曜＋春休み＋桜シーズン。浅草・池袋ともに大混雑が予想されます</p>
+                </div>
+            </div>
+            <div class="alert-item">
+                <span class="aic">📅</span>
+                <div>
+                    <h5>ランチ・ディナーは要予約</h5>
+                    <p>ランチ12:00頃、ディナー17:30の予約を早めに入れてください</p>
+                </div>
+            </div>
+            <div class="alert-item">
+                <span class="aic">🚄</span>
+                <div>
+                    <h5>のぞみは20:30発</h5>
+                    <p>ディナー後は余裕を持って東京駅へ。乗り遅れ厳禁！</p>
+                </div>
+            </div>
+            <div class="alert-item">
+                <span class="aic">🅿️</span>
+                <div>
+                    <h5>駐車場は事前予約推奨</h5>
+                    <p>京都駅八条口周辺の最大料金あり駐車場を事前に予約が安心</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        🌸 素敵な家族旅行になりますように 🌸<br>
+        <span style="font-size:.75em;opacity:.6;">最終更新：2026年3月8日</span>
+    </footer>
+
 </body>
 
 </html>
