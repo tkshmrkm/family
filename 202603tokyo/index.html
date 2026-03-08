@@ -269,7 +269,7 @@
         .sch-body {
             padding: 14px 18px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 14px;
         }
 
@@ -277,6 +277,18 @@
             padding: 9px 18px;
             color: #b07088;
             font-size: .83em;
+            justify-content: space-between;
+        }
+
+        .trdur {
+            font-size: .8em;
+            color: var(--muted);
+            background: rgba(224, 82, 122, .08);
+            border: 1px solid rgba(224, 82, 122, .15);
+            padding: 2px 9px;
+            border-radius: 20px;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         /* 左アクセントバー（イベント種別） */
@@ -334,15 +346,17 @@
             color: var(--muted);
         }
 
-        .sch-label .sl-dur {
+        .sl-dur {
             display: inline-block;
-            margin-top: 4px;
             background: rgba(224, 82, 122, .1);
             color: var(--accent);
             font-size: .74em;
             font-weight: 700;
-            padding: 2px 9px;
+            padding: 3px 10px;
             border-radius: 6px;
+            flex-shrink: 0;
+            align-self: center;
+            margin-left: auto;
         }
 
         .dur-tag {
@@ -737,22 +751,28 @@
 
         <!-- 今日のハイライト -->
         <div class="sec-title">今日のハイライト</div>
-        <div class="block-grid">
+        <div class="block-grid" style="grid-template-columns:repeat(4,1fr);">
             <div class="block">
                 <div class="emo">⛩️</div>
-                <div class="b-time">11:15〜13:30</div>
+                <div class="b-time">11:15〜13:45</div>
                 <div class="b-name">浅草 観光＆ランチ</div>
                 <div class="b-sub">仲見世・浅草寺・ランチ</div>
             </div>
             <div class="block">
                 <div class="emo">🎌</div>
-                <div class="b-time">14:00〜17:00</div>
+                <div class="b-time">14:15〜16:15</div>
                 <div class="b-name">アニメイト池袋本店</div>
                 <div class="b-sub">大型旗艦店でお買物</div>
             </div>
             <div class="block">
+                <div class="emo">🎓</div>
+                <div class="b-time">16:40〜17:45</div>
+                <div class="b-name">東京駅 キャラスト&amp;グランスタ</div>
+                <div class="b-sub">グッズ・お土産購入</div>
+            </div>
+            <div class="block">
                 <div class="emo">🍽️</div>
-                <div class="b-time">17:30〜20:00</div>
+                <div class="b-time">18:00〜20:00</div>
                 <div class="b-name">兄家族とディナー</div>
                 <div class="b-sub">東京駅周辺・8名</div>
             </div>
@@ -775,7 +795,7 @@
 
             <div class="sch-row transit">
                 <div class="sch-time">▼</div>
-                <div class="sch-body">🚗 油小路通経由 → 約25分</div>
+                <div class="sch-body"><span>🚗 油小路通経由</span><span class="trdur">約25分</span></div>
             </div>
 
             <div class="sch-row">
@@ -791,7 +811,7 @@
 
             <div class="sch-row transit">
                 <div class="sch-time">▼</div>
-                <div class="sch-body">🚌 空港リムジンバス（H2乗り場）→ 約55分</div>
+                <div class="sch-body"><span>🚌 空港リムジンバス（H2乗り場）</span><span class="trdur">約55分</span></div>
             </div>
 
             <div class="sch-row">
@@ -800,9 +820,14 @@
                     <div class="sch-bar bar-flight"></div>
                     <div class="sch-label">
                         <div class="sl-title">✈️ 大阪 伊丹空港 到着</div>
-                        <div class="sl-sub">保安検査・ラウンジ</div>
+                        <div class="sl-sub">保安検査</div>
                     </div>
                 </div>
+            </div>
+
+            <div class="sch-row transit">
+                <div class="sch-time">▼</div>
+                <div class="sch-body"><span>🛋️ ANAラウンジ・朝食（SFC）</span><span class="trdur">約35分</span></div>
             </div>
 
             <div class="sch-row">
@@ -820,7 +845,7 @@
 
             <div class="sch-row transit">
                 <div class="sch-time">▼</div>
-                <div class="sch-body">✈️ ANA018便 → 約70分フライト</div>
+                <div class="sch-body"><span>✈️ ANA018便 フライト</span><span class="trdur">約70分</span></div>
             </div>
 
             <div class="sch-row">
@@ -836,7 +861,7 @@
 
             <div class="sch-row transit">
                 <div class="sch-time">▼</div>
-                <div class="sch-body">🚃 京急・都営線 エアポート快特 → 約45分</div>
+                <div class="sch-body"><span>🚃 京急・都営線 エアポート快特</span><span class="trdur">約45分</span></div>
             </div>
 
             <div class="sch-row">
@@ -846,48 +871,83 @@
                     <div class="sch-label">
                         <div class="sl-title">⛩️ 浅草 観光・ランチ</div>
                         <div class="sl-sub">仲見世通り・浅草寺・お土産・ランチ（4名）</div>
-                        <div class="sl-dur">🕐 滞在 約2時間15分（〜13:30）</div>
+                        <div style="display:flex;gap:8px;margin-top:8px;">
+                            <a href="https://www.google.com/maps/search/?api=1&query=浅草+仲見世通り" target="_blank"
+                                class="rl mp" style="flex:none;padding:6px 12px;font-size:.72em;">🗺️ 浅草 Map</a>
+                            <a href="https://maps.apple.com/?q=浅草寺" target="_blank" class="rl ph"
+                                style="flex:none;padding:6px 12px;font-size:.72em;">🍎 Apple Map</a>
+                        </div>
                     </div>
+                    <div class="sl-dur">🕐 滞在 約2時間30分（〜13:45）</div>
                 </div>
             </div>
 
             <div class="sch-row transit">
                 <div class="sch-time">▼</div>
-                <div class="sch-body">🚃 つくばEXP or 地下鉄で池袋へ → 約25〜35分</div>
+                <div class="sch-body"><span>🚃 つくばEXP or 地下鉄で池袋へ</span><span class="trdur">約25〜30分</span></div>
             </div>
 
             <div class="sch-row">
-                <div class="sch-time">14:00</div>
+                <div class="sch-time">14:15</div>
                 <div class="sch-body">
                     <div class="sch-bar bar-main"></div>
                     <div class="sch-label">
                         <div class="sl-title">🎌 アニメイト池袋本店</div>
                         <div class="sl-sub">サンシャイン通り近く・9階建て大型旗艦店</div>
-                        <div class="sl-dur">🕐 滞在 約3時間（〜17:00）</div>
+                        <div style="display:flex;gap:8px;margin-top:8px;">
+                            <a href="https://www.google.com/maps/search/?api=1&query=アニメイト池袋本店" target="_blank"
+                                class="rl mp" style="flex:none;padding:6px 12px;font-size:.72em;">🗺️ アニメイト Map</a>
+                            <a href="https://maps.apple.com/?q=アニメイト池袋本店&address=東京都豊島区東池袋1-20-7" target="_blank"
+                                class="rl ph" style="flex:none;padding:6px 12px;font-size:.72em;">🍎 Apple Map</a>
+                        </div>
                     </div>
+                    <div class="sl-dur">🕐 滞在 約2時間（〜16:15）</div>
                 </div>
             </div>
 
             <div class="sch-row transit">
                 <div class="sch-time">▼</div>
-                <div class="sch-body">🚃 山手線で東京・丸の内方面へ → 約20分</div>
+                <div class="sch-body"><span>🚃 山手線で東京駅へ</span><span class="trdur">約20分</span></div>
             </div>
 
             <div class="sch-row">
-                <div class="sch-time">17:30</div>
+                <div class="sch-time">16:40</div>
+                <div class="sch-body">
+                    <div class="sch-bar" style="background:#a78bfa;"></div>
+                    <div class="sch-label">
+                        <div class="sl-title">🎓 東京キャラクターストリート &amp; グランスタ東京</div>
+                        <div class="sl-sub">東京駅構内B1随―キャラクターグッズ &amp; スイーツ・お土産</div>
+                        <div style="display:flex;gap:8px;margin-top:8px;">
+                            <a href="https://www.google.com/maps/search/?api=1&query=東京キャラクターストリート+東京駅" target="_blank"
+                                class="rl mp" style="flex:none;padding:6px 12px;font-size:.72em;">🗺️ キャラクタースト Map</a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=グランスタ東京+東京駅" target="_blank"
+                                class="rl ph" style="flex:none;padding:6px 12px;font-size:.72em;">🗺️ グランスタ Map</a>
+                        </div>
+                    </div>
+                    <div class="sl-dur">🕐 約1時間（〜17:45）</div>
+                </div>
+            </div>
+
+            <div class="sch-row transit">
+                <div class="sch-time">▼</div>
+                <div class="sch-body"><span>🚶 ディナー会場へ移動</span><span class="trdur">約10分</span></div>
+            </div>
+
+            <div class="sch-row">
+                <div class="sch-time">18:00</div>
                 <div class="sch-body">
                     <div class="sch-bar bar-dinner"></div>
                     <div class="sch-label">
                         <div class="sl-title">🍽️ 兄家族とディナー（8名 合流）</div>
                         <div class="sl-sub">東京駅・丸の内エリア</div>
-                        <div class="sl-dur">🕐 約2時間30分（〜20:00）</div>
                     </div>
+                    <div class="sl-dur">🕐 約2時間（〜20:00）</div>
                 </div>
             </div>
 
             <div class="sch-row transit">
                 <div class="sch-time">▼</div>
-                <div class="sch-body">🚶 東京駅 新幹線ホームへ移動</div>
+                <div class="sch-body"><span>🚶 東京駅 新幹線ホームへ移動</span><span class="trdur">約5分</span></div>
             </div>
 
             <div class="sch-row">
@@ -903,7 +963,7 @@
 
             <div class="sch-row transit">
                 <div class="sch-time">▼</div>
-                <div class="sch-body">🚄 のぞみ507号 → 約132分</div>
+                <div class="sch-body"><span>🚄 のぞみ507号</span><span class="trdur">約132分</span></div>
             </div>
 
             <div class="sch-row">
@@ -919,7 +979,7 @@
 
             <div class="sch-row transit">
                 <div class="sch-time">▼</div>
-                <div class="sch-body">🚗 マイカー → 約20分</div>
+                <div class="sch-body"><span>🚗 マイカーで帰宅</span><span class="trdur">約20分</span></div>
             </div>
 
             <div class="sch-row">
